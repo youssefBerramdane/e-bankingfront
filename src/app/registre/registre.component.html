@@ -1,0 +1,32 @@
+<div  style=" width: 100vw;height: 100vh;display: flex;justify-content: center;align-items: center;">
+    <div style="display: flex;width: 50vw;height: 50vh;">
+        <div style="width: 30vw;align-self: self-start;">
+            <img src="assets/images/join.jpg" alt="" style="width: 100%;">
+        </div>
+        <div>
+            <form style="display: flex; flex-direction: column;" [formGroup]="this.registreform">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nom</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Mote de passe</mat-label>
+                    <input matInput formControlName="password" type="password">
+                </mat-form-field>
+                
+                <div>
+                    <button [disabled]="this.registreform.invalid" (click)="Registre()" mat-raised-button>Registre</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    <div>
+        <p>Vous avez deja un compte <span style="font-weight: bold;"><a routerLink="/">connectez ici</a></span></p>
+    </div>
+    
+</div>

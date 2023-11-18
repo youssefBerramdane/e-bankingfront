@@ -1,0 +1,23 @@
+<div style="height: 100vh;display: flex;justify-content: center;align-items: center;">
+    <div style="display: flex; flex-direction: column; width: 50vw;;width: 30vw;">
+      <img style="width: 60%;align-self: center;" src="assets/images/logo.png">
+      <form style="width: 100%;" [formGroup]="this.authForm">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password">
+          </mat-form-field>
+          <div style="width: 100%;text-align: end;">
+            <button [disabled]="this.authForm.invalid" mat-raised-button (click)="Login()">Login</button>
+          </div>
+          
+      </form>
+      <div style="text-align: center;margin-top: 20px;">
+        <p>Vous n'avez pas d'un compte <span style="font-weight: bold;"><a routerLink="/registre">s'inscrire ici</a></span></p>
+      </div>
+    </div>
+    
+  </div>

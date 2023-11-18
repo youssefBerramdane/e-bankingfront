@@ -1,0 +1,35 @@
+<div class="p-3">
+    <div class="card">
+        <div class="card-header">
+            <h3>Operaion list</h3>
+        </div>
+        <div class="card-body">
+            <mat-accordion *ngIf="this.operationList.length>0">
+                <mat-expansion-panel *ngFor="let operation of this.operationList">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>{{operation.id}}</mat-panel-title>
+                        <mat-panel-description>Operation N {{operation.id}}</mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <h4>Montant</h4>
+                            <h4>{{operation.amount}}Dhs</h4>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h4>Account Id</h4>
+                            <h4>{{operation.profilFrom.id}}</h4>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h4>Nom de client</h4>
+                            <h4>{{operation.profilFrom.profile.name}}</h4>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h4>Account destination</h4>
+                            <h4>{{operation.profileTo}}</h4>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

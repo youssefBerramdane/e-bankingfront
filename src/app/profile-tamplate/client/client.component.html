@@ -1,0 +1,45 @@
+<div class="p-2">
+    <h3 *ngIf="this.clientService.currentClient">Votre Solde est de {{this.clientService.currentClient.solde}} DHS</h3>
+    <div class="card">
+        <div class="card-header">
+            <h3>Executez une transfere</h3>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="this.transfereForm">
+                <mat-form-field>
+                    <mat-label>Id destination</mat-label>
+                    <input matInput formControlName="id">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Montant</mat-label>
+                    <input matInput formControlName="montant">
+                </mat-form-field>
+            </form>
+            <button (click)="SubmitTransfere()" mat-flat-button>Executez</button>
+        </div>
+    </div>
+    
+    
+    
+    
+    <table *ngIf="this.clientService.currentClient" class="table" >
+        <thead>
+            <tr>
+                <th>N transfere</th>
+                <th>Prix</th>
+                <th>compte de expedeteur</th>
+                <th>compte de destinataire</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let trans of this.clientService.currentClient.transfereList">
+                <td>{{trans.id}}</td>
+                <td>{{trans.amount}}</td>
+                <td>{{trans.profilFrom.id}}</td>
+                <td>{{trans.profileTo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

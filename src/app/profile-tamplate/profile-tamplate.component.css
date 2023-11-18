@@ -1,0 +1,10 @@
+a mat-icon,a span{
+    color: white;
+    margin-left: 5px;
+}
+a{
+    display: flex;
+}
+a mat-icon{
+    vertical-align: top;
+}

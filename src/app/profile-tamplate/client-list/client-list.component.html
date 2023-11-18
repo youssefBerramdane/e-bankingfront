@@ -1,0 +1,25 @@
+<div style="padding: 20vh;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nom</th>
+                <th>email</th>
+                <th>solde</th>
+            </tr>
+        </thead>
+        <tbody style="width: 70vw;">
+            <tr *ngFor="let client of this.clientService.clientList">
+                <td class="{{client.solde>20000?'bons':client.solde>3000?'normal':'mauvais'}}">{{client.profile.id}}</td>
+                <td class="{{client.solde>20000?'bons':client.solde>3000?'normal':'mauvais'}}">{{client.profile.name}}</td>
+                <td class="{{client.solde>20000?'bons':client.solde>3000?'normal':'mauvais'}}">{{client.profile.email}}</td>
+                <td class="{{client.solde>20000?'bons':client.solde>3000?'normal':'mauvais'}}">{{client.solde}}</td>
+                <td><button routerLink="/profile/operaionlist/{{client.profile.id}}" class="btn btn-outline-primary">Operations</button></td>
+                <td  *ngIf="client.profile.profileStatus=='Waiting'"><div style="display: flex;"><button (click)="ValiderUser(client.profile.id)" class="btn btn-outline-success">Accepter</button><button (click)="SupprimmerUser(client.profile.id)"class="btn btn-outline-danger">Refuser</button></div></td>
+                <td><button routerLink="/profile/editclient/{{client.profile.id}}" class="btn btn-outline-info">Edit</button></td>
+                <td><button (click)="DeleteClient(client.profile.id)" class="btn btn-outline-danger ">Supprimer</button></td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
